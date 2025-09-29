@@ -1,0 +1,81 @@
+{
+    "stack": [
+        {
+            "stack name": "HTML",
+            "img": "<i class='fa-brands fa-html5 fa-4x'></i>"
+        },
+        {
+            "stack name": "CSS",
+            "img": "<i class='fa-brands fa-css3-alt fa-4x'></i>"
+        },
+        {
+            "stack name": "Javascript",
+            "img": "<i class='fa-brands fa-js fa-4x'></i>"
+        },
+        {
+            "stack name": "React",
+            "img": "<i class='fa-brands fa-react fa-4x'></i>"
+        },
+        {
+            "stack name": "BootStrap",
+            "img": "<i class='fa-brands fa-bootstrap'></i>"
+        },
+        {
+            "stack name": "SASS",
+            "img": "<i class='fa-brands fa-sass fa-4x'></i>"
+        },
+        {
+            "stack name": "Express",
+            "img": "<svg xmlns='http://www.w3.org/2000/svg'><use xlink:href='#icon-express' /></svg>"
+        },
+        {
+            "stack name": "NodeJS",
+            "img": "<i class='fa-brands fa-node fa-4x'></i>"
+        }
+    ],
+    "projects": [
+        {
+            "title": "News Homepage",
+            "img": "images/News-homepage-img.jpeg",
+            "description": "A simple responsive News Homepage built with CSS Grid.",
+            "codeLink": "https://github.com/i-Strider243/news-homepage-main",
+            "live": "https://i-strider243.github.io/news-homepage-main/"
+        },
+        {
+            "title": "Bookmark Landing Page",
+            "img": "images/Bookmark-landing-page-img.jpeg",
+            "description": "Landing page built a Mobile-first workflow, with form validation.",
+            "codeLink": "https://github.com/i-Strider243/bookmark-landing-page-master",
+            "live": "https://i-strider243.github.io/bookmark-landing-page-master/"
+        },
+        {
+            "title": "Sunnyside Agency Landing Page",
+            "img": "images/Sunnyside-agency-img.jpeg",
+            "description": "Vibrant Static landing page to showcase my skills, built with HTML, CSS, and JavaScript.",
+            "codeLink": "https://github.com/i-Strider243/sunnyside-agency-landing-page-main",
+            "live": "https://i-strider243.github.io/sunnyside-agency-landing-page-main/"
+        },
+        {
+            "title": "Intro section with dropdown navigation",
+            "img": "images/Intro-section-img.jpeg",
+            "description": "Simple intro section to practice dropdown menus.",
+            "codeLink": "https://github.com/i-Strider243/dropdown-navigation",
+            "live": "https://i-strider243.github.io/dropdown-navigation/"
+        },
+        {
+            "title": "3 Column Card Component",
+            "img": "images/Card-component-img.jpeg",
+            "description": "Simple card component built with HTML and CSS.",
+            "codeLink": "https://github.com/i-Strider243/3-column-preview-card-component",
+            "live": "https://i-strider243.github.io/3-column-preview-card-component//"
+        },
+        {
+            "title": "Fylo Dark Theme Landing Page",
+            "img": "images/Fylo-img.jpeg",
+            "description": "Dark-themed landing page with input validation.",
+            "codeLink": "https://github.com/i-Strider243/new-portfolio",
+            "live": "https://i-strider243.github.io/new-portfolio/?email=g&register-submition=Get+Started+For+Free#"
+        }
+    ]
+}
+
