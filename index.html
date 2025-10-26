@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="utils.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/utils.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Simon Gabriel</title>
     <!--Sora Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
     <!-- Browser Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io/favicon-16x16.png">
     
     <!-- <link rel="manifest" href="/site.webmanifest"> -->
     <!-- Font Awesome -->
@@ -22,43 +22,33 @@
 </head>
 <body data-theme="light-theme">
     <header class="header">
-        <nav class="navbar" aria-label="navigation">
-            <div class="container">
-                <div class="logo">
-                    <span>GB</span>
-                    <span>RL</span>
-                </div>
-                <div class="nav__btn-wrapper">
-                    <button type="button" class="nav-toggle" id="primary__nav-toggle" tabindex="1">
-                        <div class="hamburger">
-                            <span class="sr-only">Menu</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="column">
-                    <button type="button" id="close__btn" tabindex="-1">
-                        <div class="cross">
-                            <span class="sr-only">Close Menu</span>
-                        </div>
-                    </button>
+        <div class="logo">
+            <span>GB</span>
+            <span>RL</span>
+        </div>
+        <button type="button" title="Menu" class="nav-toggle" id="primary__nav-toggle" aria-haspopup="true" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
+            <i class="fa-2x fa-solid fa-bars"></i>
+        </button>
+            <nav class="navbar">
+            <button type="button" id="close__btn" title="Close Menu">
+                <i class="fa-2x fa-solid fa-xmark"></i>
+            </button>
 
-                    <ul class="nav__list">
-                        <li class="nav__link">
-                            <a href="#about" class="link-text">About Me
-                            </a>
-                        </li>
-                        <li class="nav__link">
-                            <a href="#explore" class="link-text">Stack</a>
-                        </li>
-                        <li class="nav__link">
-                            <a href="#projects" class="link-text">Projects</a>
-                        </li>
-                        <li class="nav__link">
-                            <a href="#contact" class="link-text">Contact Me</a>    
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="nav__list" role="menu" id="menu" aria-labelledby="primary__nav-toggle">
+                <li role="presentation" class="nav__link">
+                    <a href="#about" class="link-text" role="menuitem">About Me
+                    </a>
+                </li>
+                <li role="presentation" class="nav__link">
+                    <a href="#explore" class="link-text" role="menuitem">Stack</a>
+                </li>
+                <li role="presentation" class="nav__link">
+                    <a href="#projects" class="link-text" role="menuitem">Projects</a>
+                </li>
+                <li role="presentation" class="nav__link">
+                    <a href="#contact" class="link-text" role="menuitem">Contact Me</a>    
+                </li>
+            </ul>
         </nav>
     </header>
     <div class="sc">
@@ -78,18 +68,18 @@
             </div>
             <div class="column">
                 <div class="bg-element">
-                    <img src="images/rad-curved-pentagon.svg" alt="" class="pentagon">
+                    <img src="/assets/images/rad-curved-pentagon.svg" alt="" class="pentagon">
                 </div>
                 <div class="content">
                     <h1 class="hero__title">
-                        <span>Hi I'm Gabriel.</span>
+                        <span>Hi, I'm Gabriel.</span>
                         <span>A Frontend Developer</span> 
                     </h1>
                     <p class="hero__text">I help Craft Exceptional Frontend Experiences for You</p>
                 </div>
                 <div class="hero__actions">
-                    <a class="hero__btn" type="button" href="#contact">Contact Me</a>
-                    <a class="hero__btn" href="./resume/Simon_Gabriel-Resume-portfolio.pdf">Resume</a>
+                    <a class="hero__btn" href="#contact">Contact Me</a>
+                    <a class="hero__btn" href="/assets/resume/Simon_Gabriel-Resume-portfolio.pdf">Resume</a>
                 </div>
             </div>
         </section>
@@ -98,7 +88,7 @@
                 <div class="tagline-wrapper"><span class="tagline">About</span></div>
                 <div class="content">
                     <h2 class="heading">Envision, Your Idea</h2>
-                    <p class="about__text">Welcome to my portfolio! Your final stop for your web needs, I specialize in creating visually stunning and user-friendly websites tailored for small to medium businesses. I have a passion for creating functional solutions based on customer needs and specifications. I bring your digital vision to life.</p>
+                    <p class="about__text">Welcome to my portfolio! Your final stop for your web needs, I specialize in creating visually stunning and user-friendly websites for clients. I have a passion for creating functional solutions based on client needs and specifications. I bring your digital vision to life.</p>
                     <br>
                     <p class="about__text">I enjoy working on projects that challenge me and allow me to grow as a developer. When I'm not coding, you can find me exploring the latest tech trends or watching a fun movie to unwind. Explore my work and let's build something amazing together!</p>
                 </div>
@@ -185,8 +175,8 @@
                     <textarea title="Write a message" name="textarea" class="input-textarea" id="message" rows="6" minlength="3" required></textarea>
                     <span class="message-error-msg"></span>
                     <button type="submit" class="submit-btn">Let`s go →</button>
+                    <div id="email-modal"></div>
                 </form>
-                <div id="email-modal">hulu</div>
             </div>
         </section>
     </main>
@@ -212,12 +202,10 @@
                         </a>
                     </li>
                     <li class="nav__list">
-                        <a href="https://www.linkedin.com/in/gabriel-o-simon/" title="LinkedIn" 
-                         target="_blank" rel="noopener" class="nav__link"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/gabriel-o-simon/" title="LinkedIn" target="_blank" rel="noopener" class="nav__link"><i class="fa-brands fa-linkedin"></i></a>
                     </li>
                     <li class="nav__list">
-                        <a href="https://x.com/Strider18" target="_blank"
-                        rel="noopener" title="X" class="nav__link"><i class="fa-brands fa-square-x-twitter"></i></a>
+                        <a href="https://x.com/Strider18" target="_blank" rel="noopener" title="X" class="nav__link"><i class="fa-brands fa-square-x-twitter"></i></a>
                     </li>
                 </ul>
             </div>
@@ -231,23 +219,21 @@
             </nav>
         </div>
     </footer>
-        <button type="button" class="slideUp" id="back-to-top-button" title="Back to top Button">
-            <div class="arrow"></div>
+        <button type="button" id="back-to-top-button" title="Back to top Button">
+            <i class="fa-solid fa-arrow-up"></i>
         </button>
-<script type="module" src="script.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+<script type="module" src="./js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
-<script type="text/javascript">
+<script>
     (function () {
         emailjs.init({
             publicKey: "NMU-Met_4N2yy_199",
         });
     })();
 </script>
-</body>
-</html>
 <div class="svg-icons">
-    <svg id="icon-frontmnt" viewBox="-2.4 -2.4 28.80 28.80" role="img" xmlns="http://www.w3.org/2000/svg" stroke-width="1.656"><g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)"><rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="2.88" strokewidth="0" fill="#000000"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12.17 1.272a.732.732 0 0 0-.718.732v13.914a.732.732 0 0 0 .732.732.732.732 0 0 0 .732-.732V2.004a.732.732 0 0 0-.745-.732zM23.246 5.44a.734.734 0 0 0-.277.063l-6.282 2.804a.733.733 0 0 0 0 1.336l6.282 2.813a.738.738 0 0 0 .3.065.732.732 0 0 0 .297-1.4L18.78 8.976l4.786-2.137a.734.734 0 0 0 .37-.966.734.734 0 0 0-.69-.433zm-22.5 5.032a.732.732 0 0 0-.722.915c1.736 6.677 7.775 11.341 14.683 11.341a.732.732 0 0 0 0-1.464A13.706 13.706 0 0 1 1.44 11.02a.732.732 0 0 0-.694-.547z"></path></g></svg>
-
     <svg id="icon-express" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier" fill="currentColor"><path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 0 1 0 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"></path></g></svg>
 </div>
+</body>
+</html>

@@ -1,9 +1,10 @@
-import data from "./data.json" with { type: "json" };
+import data from "../data.json" with { type: "json" };
 
 // Element Declarations
 const primaryNavToggle = document.getElementById("primary__nav-toggle");
 const closeBtn = document.getElementById("close__btn");
 const header = document.querySelector("header");
+const navBar = document.querySelector("nav");
 const navList = document.querySelector(".nav__list");
 const navLinks = document.querySelectorAll("header .nav__list a");
 const backToTopButton = document.getElementById("back-to-top-button");
@@ -67,6 +68,15 @@ if (document.body.clientWidth <= 738) {
     navLinks.forEach(link => {
         link.tabIndex = -1;
     });
+    closeBtn.style.position = "static";
+    closeBtn.style.marginLeft = "auto";
+    closeBtn.style.transform = "translateY(0)";
+} else {
+    closeBtn.style.position = "absolute";
+    closeBtn.style.transform = "translateY(-12rem)";
+    navLinks.forEach(link => {
+        link.tabIndex = 0;
+    });
 }
 
 // Remove tab focus for navbar links when they are not visible and the page is resized
@@ -77,46 +87,54 @@ window.addEventListener("resize", () => {
         navLinks.forEach(link => {
             link.tabIndex = -1;
         });
-    }   
+        closeBtn.style.position = "static";
+        closeBtn.style.marginLeft = "auto";
+        closeBtn.style.transform = "translateY(0)";
+    } else {
+        closeBtn.style.position = "absolute";
+        closeBtn.style.transform = "translateY(-12rem)";
+        navLinks.forEach(link => {
+            link.tabIndex = 0;
+        });
+    }
 });
 
-// Make the footer visible when any of its element is on focus
-const focusableElements = footer.querySelectorAll('a');
-focusableElements.forEach(el => {
-    el.addEventListener("focus", () => {
-        window.scrollTo(0, document.body.scrollHeight)
-    })
-});
-
-// To make the footer visible after making it display: absolute
-main.style.marginBottom = `${footer.clientHeight - 10}px`;
-
-// Toggle the navigation menu when the hamburger icon is clicked
+// Toggle open the navigation menu when the hamburger icon is clicked
 primaryNavToggle.addEventListener("click", () => {
     primaryNavToggle.classList.add("active");
-    navList.classList.add("active");
-    closeBtn.tabIndex = 1;
+    primaryNavToggle.setAttribute("aria-expanded", "true");
+    navBar.classList.add("active");
+    closeBtn.tabIndex = 0;
     navLinks.forEach(link => {
         link.tabIndex = 0;
     });
 });
 
-closeBtn.addEventListener("click", () => {
+// Function to close the navbar Menu
+const closeMenu = () => {
     primaryNavToggle.classList.remove("active");
-    navList.classList.remove("active");
+    primaryNavToggle.setAttribute("aria-expanded", "false");
+    navBar.classList.remove("active");
     closeBtn.tabIndex = -1;
     navLinks.forEach(link => {
         link.tabIndex = -1;
     });
-})
+    if (document.body.clientWidth >= 738) {
+        navLinks.forEach(link => {
+            link.tabIndex = 0;
+        });
+    }
+}
 
-// Back to top button with smooth scroll effect
-backToTopButton.addEventListener("click", () => {
-    document.documentElement.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    })
+// Close the menu when tab focus is moved outside the navbar
+document.addEventListener('focusin', function(e) {
+    if (!navBar.contains(e.target) && e.target !== closeBtn) {
+        closeMenu();
+    }
 });
+
+// Close the menu when the close button is clicked
+closeBtn.addEventListener("click", closeMenu);
 
 // Add a smooth scroll effect to all anchor links
 // Remove tab focus for navbar links when not active and on mobile
@@ -124,14 +142,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
         if (document.body.clientWidth <= 736) {
-            navList.classList.remove("active");
-            primaryNavToggle.classList.remove("active");
-            closeBtn.tabIndex = 0;
+            closeMenu();
         }
         document.querySelector(this.getAttribute("href")).scrollIntoView({
             behavior: "smooth"
         });
     });
+});
+
+// To make the footer visible after making it display: absolute
+main.style.marginBottom = `${footer.clientHeight - 10}px`;
+
+// Make the footer visible when any of its element are on focus
+const focusableElements = footer.querySelectorAll('a');
+focusableElements.forEach(el => {
+    el.addEventListener("focus", () => {
+        window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
+    })
+});
+
+// Back to top button with smooth scroll effect
+backToTopButton.addEventListener("click", () => {
+    document.documentElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
 });
 
 //Email validation
@@ -193,9 +228,9 @@ const emailModal = document.querySelector("#email-modal");
 
 const emailFeedback = (msg) => {
     emailModal.innerHTML = msg
-    emailModal.classList.add("showModal");
+    emailModal.classList.add("show-modal");
     setTimeout(() => {
-    emailModal.classList.remove("showModal");        
+    emailModal.classList.remove("show-modal");        
     }, 8000);
 }
 
@@ -206,20 +241,19 @@ form.addEventListener('submit', function(event) {
 
     emailjs.sendForm('service_lz408cd', 'template_np1qsoh', this)
         .then(() => {
+            emailModal.style.borderColor = "var(--clr-success)";
             emailFeedback('Email sent successfully!');
             form.reset();
         }, (error) => {
-            emailFeedback('Failed to send email. Please try again later.');
+            emailModal.style.borderColor = "var(--clr-error)";
+            emailFeedback('Failed to send email. Please try again.');
             console.error('EmailJS Error:', error);            
         });
 });
 
-
-// navigator.registerProtocolHandler('mailto', 'https://mail.google.com/mail/?extsrc=mailto&url=%s', 'Gmail')
-
 // Theme toggler
 const toggleBtn = document.querySelector(".switch");
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+// const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 
 // Get the previous theme from localStorage 
@@ -252,9 +286,9 @@ toggleBtn.addEventListener("click", function (e) {
 });
 
 // Toggle dark mode based on user browser preference
-window.addEventListener("load", () => {
-    prefersDarkScheme.matches === true ? setTheme("dark-theme") : setTheme("light-theme");
-});
+// window.addEventListener("load", () => {
+//     prefersDarkScheme.matches === true ? setTheme("dark-theme") : setTheme("light-theme");
+// });
 
 
 // Follow cursor with a div

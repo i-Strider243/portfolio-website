@@ -147,6 +147,16 @@
     opacity: 0;
   }
 }
+@-webkit-keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  50% {
+    transform: translateY(100px) scale(1.2);
+  }
+}
 
 @keyframes float {
   0%,
@@ -170,12 +180,40 @@
   }
 }
 
+@-webkit-keyframes rotate {
+  0% {
+      transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes float-rotate {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  33% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  66% {
+    transform: translateY(10px) rotateY(360deg);
   }
 }
 
