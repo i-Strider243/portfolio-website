@@ -33,11 +33,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Simon Gabriel - Portfolio Website](screenshots/Desktop-view_10-8-2024.jpeg)
+![Simon Gabriel - Portfolio Website](screenshots/Desktop-view-portfolio.jpeg)
 
 ### Links
 
-- [Live site URL](https://i-strider243.github.io/bookmark-landing-page-master/)
+- [Live site URL](https://simon-gabriel.netlify.app/)
 
 ## My process
 
